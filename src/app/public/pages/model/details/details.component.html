@@ -1,0 +1,71 @@
+<app-side-navigator-bar></app-side-navigator-bar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" *ngIf="equipmentDetails">
+        <div class="card-header">
+          <h2>Details Equipment</h2>
+        </div>
+        <div class="card-body">
+          <p><strong>Team Name:</strong> {{ equipmentDetails.title }}</p>
+          <p><strong>Description:</strong> {{ equipmentDetails.description }}</p>
+          <p><strong>Capacity:</strong> {{ equipmentDetails.capacity }}</p>
+          <p><strong>Temperature:</strong> {{ equipmentDetails.temperature }}</p>
+          <p><strong>Humidity:</strong> {{ equipmentDetails.humidity }}</p>
+          <p><strong>Last Maintenance:</strong> {{ equipmentDetails.lastMaintenance }}</p>
+          <p><strong>Next Maintenance:</strong> {{ equipmentDetails.nextMaintenance }}</p>
+          <p><strong>Model:</strong> {{ equipmentDetails.model }}</p>
+          <p><strong>Serial Number:</strong> {{ equipmentDetails.serialNumber }}</p>
+          <p><strong>Installation Date:</strong> {{ equipmentDetails.installedDate }}</p>
+          <div *ngIf="equipmentDetails.image">
+            <img [src]="equipmentDetails.image" alt="Imagen del equipo" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card" *ngIf="produtos && produtos.length > 0">
+        <div class="card-header">
+          <h2>Product Details</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4" *ngFor="let produto of produtos">
+              <div class="product-card">
+                <h3>{{ produto.nombre }}</h3>
+                <p><strong>Status:</strong> {{ produto.estado }}</p>
+                <p><strong>Brand:</strong> {{ produto.marca }}</p>
+                <p><strong>Quantity:</strong> {{ produto.cantidad }}</p>
+                <div *ngIf="produto.photo && produto.photo.length > 0">
+                  <img [src]="produto.photo[0]" alt="Imagen del producto" class="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isMaintenanceDue()" class="floating-alert-overlay">
+    <div class="floating-alert-card card border-danger">
+      <div class="card-header bg-danger text-white text-center">
+        <h4 class="card-title mb-0"><i class="fas fa-exclamation-triangle"></i> Maintenance Required</h4>
+      </div>
+      <div class="card-body text-center">
+        <p class="card-text">
+          Attention! The equipment needs maintenance. The next maintenance date has already passed.
+        </p>
+        <div class="text-center">
+          <button class="btn custom-button mt-3" (click)="closeAlert()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!produtos && !equipmentDetails">
+    <p>No equipment or product details were found.</p>
+  </div>
+</div>

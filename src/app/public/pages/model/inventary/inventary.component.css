@@ -1,0 +1,230 @@
+.inventory-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-form {
+  width: 45%;
+}
+
+.product-list {
+  width: 50%;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 70%;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border: 2px solid #0072ff;
+  outline: none;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  border: 2px dashed #4A90E2;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 70%;
+  transition: border-color 0.3s ease;
+}
+
+.file-upload:hover {
+  border-color: #9B59B6;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+
+.photo-previews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.photo-preview {
+  position: relative;
+  width: 70%;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: auto;
+}
+
+.delete-button {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: darkgray;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+button {
+  margin-top: 10px;
+  width: 70%;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #4A90E2;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #9148ac;
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.input-invalid {
+  border-color: red !important;
+}
+
+/* Nueva sección para la tarjeta de detalles del producto seleccionado */
+.selected-product-card {
+  position: fixed; /* Posicionamiento fijo para centrar en la pantalla */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; /* Ancho fijo más compacto */
+  background-color: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
+}
+
+.selected-product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.selected-product-card h2 {
+  margin-bottom: 15px;
+}
+
+.selected-product-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.selected-product-card button {
+  width: 50%;
+  background-color: #ff4d4d; /* Botón de cerrar rojo */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.selected-product-card button:hover {
+  background-color: #cc0000;
+}
+
+/* Fondo semitransparente cuando la tarjeta de detalles está visible */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* Debe estar debajo de la tarjeta de detalles */
+}
+
+
+
+
+
+
